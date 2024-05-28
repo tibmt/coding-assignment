@@ -10,8 +10,8 @@ const starredSlice = createSlice({
             state.starredMovies = [action.payload, ...state.starredMovies]
         },
         unstarMovie: (state, action) => {
-            const indexOfId = state.starredMovies.findIndex(key => key.id === action.payload.id)
-            state.starredMovies.splice(indexOfId, 1)
+            // refactoring - use filter methid
+            state.starredMovies = state.starredMovies.filter(key => key.id !== action.payload.id)
         },
         clearAllStarred: (state) => {
             state.starredMovies = []
